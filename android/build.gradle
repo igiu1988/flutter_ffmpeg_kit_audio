@@ -13,22 +13,22 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url '/Users/wangyang/Projects/my-maven-repo/maven-repo'
+        }
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    // Conditional for compatibility with AGP <4.2.
-    if (project.android.hasProperty("namespace")) {
-        namespace 'com.arthenica.ffmpegkit.flutter'
-    }
+    namespace 'com.arthenica.ffmpegkit.flutter'
 
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 24
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 603
         versionName "6.0.3"
     }
@@ -50,4 +50,5 @@ android {
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
     implementation 'com.arthenica:ffmpeg-kit-audio:6.0-2'
+    implementation 'com.arthenica:smart-exception-java:0.2.1'
 }
